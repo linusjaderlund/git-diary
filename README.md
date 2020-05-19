@@ -12,9 +12,9 @@ Clone this repository and create a **.key** file within the repository directory
 
 `npm run create-today` will create an new **today.md** file with pre-generated date.
 
-### Archive todays entry
+### Archive todays entry and create git commit
 
-`npm run archive-today` will move **today.md** to **archive/**, encrypt it and rename it after the date set inte the title of the entry. If title is missing then the default name will to _todays_ date.
+`npm run archive-today` will move **today.md** to **archive/**, encrypt it and rename it after the date set inte the title of the entry. If title is missing then the default name will be _todays_ date. This also commits the new archived file to git for easy push.
 
 ### List bookmarks/notes
 
