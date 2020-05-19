@@ -1,0 +1,30 @@
+{
+  "name": "git-diary",
+  "version": "1.0.0",
+  "description": "A git based diary with node powers",
+  "main": "script/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create-today": "cp _template.md today.md && node script/render-date.js",
+    "archive-today": "mv today.md archive/ && npx hemligt archive/today.md && node script/rename-today.js && git add . && git commit -am \"Archived and encrypted todays entry\"",
+    "list-bookmarks": "node script/list-bookmarks",
+    "add-bookmark": "node script/add-bookmark",
+    "remove-bookmark": "node script/remove-bookmark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linusjaderlund/git-diary.git"
+  },
+  "keywords": [
+    "diary",
+    "node",
+    "npm",
+    "encrypted"
+  ],
+  "author": "Linus Jäderlund",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/linusjaderlund/git-diary/issues"
+  },
+  "homepage": "https://github.com/linusjaderlund/git-diary#readme"
+}
