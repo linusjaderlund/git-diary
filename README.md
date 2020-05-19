@@ -2,9 +2,13 @@
 
 A git based diary with node powers
 
-## Setup
+## Setup .key file
 
 Clone this repository and create a **.key** file within the repository directory. Open the **.key** file and write any key/password you would like to use when encrypting your diary entries.
+
+## Setup \_template.md
+
+Adjust **\_template.md** according to your needs, leave date title (# YYYY-MM-DD) as is, this is needed for scripts and such. **PS. Leave date title**.
 
 ## Commands
 

@@ -1,16 +1,16 @@
 # YYYY-MM-DD
 
-_En dag ur Linus Jäderlunds liv_
+_Author <name>_
 
-## Sinne, kropp och själ
+## Mind, body and soul
 
-[tid] Skriv om hur du känner dig i sinnet, kroppen och själen kopplat till en händelse eller allmänt, använd [tid] för tidstämpel.
+[time] Write about how you feel, whats happening abound you or just random stuff.
 
-## Träning
+## Workout
 
-[tid] Skriv om eventuell träning och hur det kändes samt ev. förbättringspotential
+[tid] Write about your workout progression
 
-## Tre saker jag är tacksam för
+## Three things I'm grateful for today
 
 1. ...
 2. ...
