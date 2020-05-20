@@ -1,6 +1,6 @@
-const bookmarks = require("./read-bookmarks")();
+const bookmarks = require('./read-bookmarks')();
 
-console.log("\n\nBOOKMARKS AND NOTES:\n");
+console.log('\n\nBOOKMARKS AND NOTES:\n');
 
 for (let index = 0; index < bookmarks.length; index++) {
   const bookmark = bookmarks[index];
@@ -9,4 +9,4 @@ for (let index = 0; index < bookmarks.length; index++) {
   console.log(`${number}. ${bookmark}`);
 }
 
-console.log("\n");
+console.log('\n');
