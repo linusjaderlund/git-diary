@@ -28,7 +28,7 @@ const init = () => {
   const index = getIndex(process.argv[2]);
 
   if (index > -1) {
-    remove(bookmarkIndex);
+    remove(index);
   }
 };
 
