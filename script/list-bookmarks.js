@@ -1,12 +1,20 @@
-const bookmarks = require('./read-bookmarks')();
+const bookmarks = require('./bookmarks');
 
-console.log('\n\nBOOKMARKS AND NOTES:\n');
+const init = () => {
+  console.log('\n\nBOOKMARKS AND NOTES:\n');
 
-for (let index = 0; index < bookmarks.length; index++) {
-  const bookmark = bookmarks[index];
-  const number = index + 1;
+  if (!bookmarks.length) {
+    console.log('- No bookmarks or notes stored yet -');
+  }
 
-  console.log(`${number}. ${bookmark}`);
-}
+  for (let index = 0; index < bookmarks.length; index++) {
+    const bookmark = bookmarks[index];
+    const number = index + 1;
 
-console.log('\n');
+    console.log(`${number}. ${bookmark}`);
+  }
+
+  console.log('\n');
+};
+
+init();

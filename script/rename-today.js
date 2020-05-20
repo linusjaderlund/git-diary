@@ -1,23 +1,47 @@
 const path = require('path');
 const fs = require('fs');
-const currentFileName = 'today.md';
-const pathToArchive = path.join(__dirname, '../archive');
-const pathToCurrentFile = path.join(pathToArchive, currentFileName);
-const date = new Date();
-const zero = (num) => (num < 10 ? '0' + num : num);
 
-let newFileName;
+const getNameByReadingTitle = (pathToEntry) => {
+  const entryString = fs.readFileSync(pathToEntry, 'utf8');
+  const entryLines = entryString.split(/\n/);
+  const firstEntryLine = entryLines[0];
+  const dateMatch = firstEntryLine.match(/\d{4}-\d{2}-\d{2}/);
 
-try {
-  newFileName =
-    fs.readFileSync(pathToCurrentFile, 'utf8').split('\n')[0].split('# ')[1].replace(/-/g, '') +
-    '.md';
-
-  if (!newFileName.match(/\d{8}/)) {
-    throw new Error('Date string mismatch!');
+  if (!dateMatch) {
+    return '';
   }
-} catch (error) {
-  newFileName = `${date.getFullYear()}${zero(date.getMonth() + 1)}${zero(date.getDate())}.md`;
-}
 
-fs.renameSync(pathToCurrentFile, path.join(pathToArchive, newFileName));
+  const date = dateMatch[0].replace(/-/g, '');
+  const name = `${date}.md`;
+
+  return name;
+};
+
+const getNameByTodaysDate = () => {
+  const zero = (num) => (num < 10 ? '0' + num : num);
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = zero(date.getMonth() + 1);
+  const day = zero(date.getDate());
+
+  const name = `${year}${month}${day}.md`;
+
+  return name;
+};
+
+const getNameByInput = () => '';
+
+const init = () => {
+  const entryName = 'today.md';
+  const pathToArchive = path.join(__dirname, '../archive');
+  const pathToEntry = path.join(pathToArchive, entryName);
+
+  if (!fs.existsSync(pathToEntry)) {
+    return console.log('Could not find todays entry in the archive, failed to rename it!');
+  }
+
+  const name = getNameByReadingTitle(pathToEntry) || getNameByTodaysDate() || getNameByInput();
+  fs.renameSync(pathToEntry, path.join(pathToArchive, name));
+};
+
+init();
